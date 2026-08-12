@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetroMarket News | Energy & Commodity Insights</title>
+    <style>
+        :root { --bg: #0b0f19; --card: #151c2c; --accent: #f59e0b; --text: #f3f4f6; }
+        body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
+        header { background: #1e293b; padding: 1rem 2rem; border-bottom: 2px solid var(--accent); }
+        .ticker { background: #000; padding: 0.5rem 2rem; font-size: 0.9rem; color: #10b981; }
+        .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .news-card { background: var(--card); border-radius: 8px; padding: 1.5rem; border: 1px solid #1e293b; }
+        .tag { background: #374151; color: var(--accent); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="ticker">
+        <strong>MARKETS:</strong> WTI Crude: $78.40 ▲ | Brent: $82.10 ▲ | Natural Gas: $2.15 ▼ | LNG Asia: $13.50 ▲
+    </div>
+    <header>
+        <h1>PetroMarket Energy News</h1>
+        <p>Real-time Intelligence on Oil, Gas, and Energy Commodities</p>
+    </header>
+    <main class="container">
+        <h2>Latest Energy Headlines</h2>
+        <div class="grid">
+            <article class="news-card">
+                <span class="tag">OIL & GAS</span>
+                <h3>Global Oil Demand Projections Shift Amid Supply Adjustments</h3>
+                <p>Market analysts review inventory changes across major refining hubs as crude futures react to fresh production targets.</p>
+            </article>
+        </div>
+    </main>
+</body>
+</html>
