@@ -52,6 +52,26 @@ function renderNewsFeed(articles) {
     `).join("");
 }
 
+// Filter articles by commodity category
+function filterNews(category) {
+    // Update active button state
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => {
+        if (btn.innerText.trim() === category || (category === 'All' && btn.innerText.includes('All'))) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    if (category === 'All') {
+        renderNewsFeed(newsArticles);
+    } else {
+        const filtered = newsArticles.filter(item => item.category === category);
+        renderNewsFeed(filtered);
+    }
+}
+
 // Initialize application on page load
 document.addEventListener("DOMContentLoaded", () => {
     renderNewsFeed(newsArticles);

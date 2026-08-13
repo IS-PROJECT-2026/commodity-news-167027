@@ -4,16 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PetroMarket News | Energy & Commodity Insights</title>
-    <style>
-        :root { --bg: #0b0f19; --card: #151c2c; --accent: #f59e0b; --text: #f3f4f6; }
-        body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
-        header { background: #1e293b; padding: 1rem 2rem; border-bottom: 2px solid var(--accent); }
-        .ticker { background: #000; padding: 0.5rem 2rem; font-size: 0.9rem; color: #10b981; }
-        .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .news-card { background: var(--card); border-radius: 8px; padding: 1.5rem; border: 1px solid #1e293b; }
-        .tag { background: #374151; color: var(--accent); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="ticker">
@@ -23,8 +14,15 @@
         <h1>PetroMarket Energy News</h1>
         <p>Real-time Intelligence on Oil, Gas, and Energy Commodities</p>
     </header>
-    <!-- Inside index.html, replace the <main> block with: -->
     <main class="container">
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterNews('All')">All Markets</button>
+            <button class="filter-btn" onclick="filterNews('Crude Oil')">Crude Oil</button>
+            <button class="filter-btn" onclick="filterNews('Natural Gas')">Natural Gas</button>
+            <button class="filter-btn" onclick="filterNews('LNG')">LNG</button>
+            <button class="filter-btn" onclick="filterNews('Infrastructure')">Infrastructure</button>
+        </div>
+        
         <h2>Latest Energy Headlines</h2>
         <div id="news-grid" class="grid">
             <!-- Rendered dynamically via app.js -->
