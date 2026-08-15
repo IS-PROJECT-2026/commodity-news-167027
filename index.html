@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PetroMarket News | Energy & Commodity Insights</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="ticker" id="market-ticker-data">
@@ -15,6 +16,10 @@
         <p>Real-time Intelligence on Oil, Gas, and Energy Commodities</p>
     </header>
     <main class="container">
+        <section class="chart-container" style="background: var(--card); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 2rem;">
+            <h2>Energy Commodity Spot Trends (7-Day)</h2>
+            <canvas id="commodityChart" height="100"></canvas>
+        </section>
         <div class="filter-bar">
             <button class="filter-btn active" onclick="filterNews('All')">All Markets</button>
             <button class="filter-btn" onclick="filterNews('Crude Oil')">Crude Oil</button>
