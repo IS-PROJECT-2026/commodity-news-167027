@@ -34,23 +34,23 @@ const newsArticles = [
     }
 ];
 
-// // Render News Feed to DOM
-// function renderNewsFeed(articles) {
-//     const grid = document.getElementById("news-grid");
-//     if (!grid) return;
+// Render News Feed to DOM
+function renderNewsFeed(articles) {
+    const grid = document.getElementById("news-grid");
+    if (!grid) return;
 
-//     grid.innerHTML = articles.map(article => `
-//         <article class="news-card">
-//             <div class="card-meta">
-//                 <span class="tag">${article.category}</span>
-//                 <span class="time">${article.timestamp}</span>
-//             </div>
-//             <h3>${article.title}</h3>
-//             <p>${article.summary}</p>
-//             <span class="source">Source: ${article.source}</span>
-//         </article>
-//     `).join("");
-// }
+    grid.innerHTML = articles.map(article => `
+        <article class="news-card">
+            <div class="card-meta">
+                <span class="tag">${article.category}</span>
+                <span class="time">${article.timestamp}</span>
+            </div>
+            <h3>${article.title}</h3>
+            <p>${article.summary}</p>
+            <span class="source">Source: ${article.source}</span>
+        </article>
+    `).join("");
+}k
 
 // Filter articles by commodity category
 function filterNews(category) {
@@ -103,6 +103,60 @@ async function fetchMarketTicker() {
         `;
     }
 }
+
+// Initialize Chart.js Commodity Analytics
+function initCommodityChart() {
+    const ctx = document.getElementById('commodityChart');
+    if (!ctx) return;
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [
+                {
+                    label: 'WTI Crude ($/bbl)',
+                    data: [76.50, 77.10, 76.80, 78.00, 77.90, 78.20, 78.40],
+                    borderColor: '#f59e0b',
+                    backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                    tension: 0.3,
+                    fill: true
+                },
+                {
+                    label: 'Brent Crude ($/bbl)',
+                    data: [80.20, 80.90, 81.30, 81.00, 81.80, 82.00, 82.10],
+                    borderColor: '#38bdf8',
+                    backgroundColor: 'rgba(56, 189, 248, 0.1)',
+                    tension: 0.3,
+                    fill: true
+                },
+                {
+                    label: 'Natural Gas ($/MMBtu)',
+                    data: [2.30, 2.28, 2.22, 2.19, 2.18, 2.16, 2.15],
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    tension: 0.3,
+                    fill: true
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { labels: { color: '#f3f4f6' } }
+            },
+            scales: {
+                x: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } },
+                y: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } }
+            }
+        }
+    });
+}
+
+// Call inside DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+    initCommodityChart();
+});
 
 // Call ticker fetch on load
 document.addEventListener("DOMContentLoaded", () => {
