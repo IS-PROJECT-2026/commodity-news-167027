@@ -50,7 +50,7 @@ function renderNewsFeed(articles) {
             <span class="source">Source: ${article.source}</span>
         </article>
     `).join("");
-}k
+}
 
 // Filter articles by commodity category
 function filterNews(category) {
